@@ -1,10 +1,31 @@
-<html>
+<!-- <html>
     <head>
         <title><%= title %></title>
+    
+        <%- style%>
     </head>
     <body>
-        <%- include{_header.ejs}%>
-        <%- include{body} %>
-        <%- include{_footer.ejs}%>
+        <%- include('_header.ejs'); %>
+        <%- body %>
+        <%- include('_footer.ejs'); %>
+
+        <%- script %>
+    </body>
+</html> -->
+
+<html>
+    <head>
+        <title>
+            <%= title %>
+        </title>
+        <link rel="stylesheet" href="/css/layout.css">
+        <%- style %>
+    </head>
+    <body>
+        <%- include('_header.ejs'); %>
+        <%- body %>
+        <%- include('_footer.ejs'); %>
+
+        <%- script%>
     </body>
 </html>
