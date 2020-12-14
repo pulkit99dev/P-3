@@ -5,6 +5,8 @@ let db = require('./config/mongoose');
 
 let app = express();
 
+//parsing form data
+app.use(express.urlencoded());
 
 // calling static files
 app.use(express.static('./assets'));
