@@ -1,5 +1,47 @@
 let User = require('../model/user_schema');
 
+// module.exports.profile = function(req, res){
+
+//     if(req.cookies.user_id){
+//         User.findById(req.cookies.user_id, function(err, user){
+//             if(user){
+//                 return res.render('profile',{
+//                 title: 'Profile page',
+//                 user : user
+//             });
+//     }else{
+//         return res.redirect('/user/login');
+//     }
+// });
+
+// }else{
+//     return res.redirect('/user/login')
+// }
+
+
+module.exports.profile = function(req, res){
+    if (req.cookies.user_id){
+        User.findById(req.cookies.user_id, function(err, user){
+            if (user){
+                return res.render('profile', {
+                    title: "User Profile",
+                    user: user
+                })
+            }else{
+                return res.redirect('/user/login');
+
+            }
+        });
+    }else{
+        return res.redirect('/user/login');
+
+    }
+
+
+    
+}
+
+
 module.exports.signup = function(req, res){
     return res.render('sign-up', {
         title: 'Sign-up'
@@ -32,7 +74,7 @@ module.exports.create = function(req, res){
 }
 
 //log-in session
-module.exports.create_session= function(req, res){
+module.exports.createSession= function(req, res){
         User.findOne({email: req.body.email}, function(err, user){
             if(err){console.log(`Error in finding user`);
             return;

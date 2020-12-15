@@ -2,12 +2,16 @@ const express = require('express');
 
 let router = express.Router();
 
-let sigupController = require('../controller/user');
+let userController = require('../controller/user');
 
-router.get('/sign-up', sigupController.signup);
+router.get('/sign-up', userController.signup);
 
-router.get('/login', sigupController.login);
+router.get('/login', userController.login);
 
-router.post('/create', sigupController.create);
+router.post('/create', userController.create);
+
+router.post('/create-session', userController.createSession);
+
+router.get('/profile', userController.profile);
 
 module.exports = router;

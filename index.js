@@ -1,4 +1,5 @@
 const express = require('express');
+const cookieParser = require('cookie-parser');
 const port = 9000;
 const expressLayouts= require('express-ejs-layouts');
 let db = require('./config/mongoose');
@@ -7,6 +8,9 @@ let app = express();
 
 //parsing form data
 app.use(express.urlencoded());
+
+//parsing cookies
+app.use(cookieParser());
 
 // calling static files
 app.use(express.static('./assets'));
