@@ -90,3 +90,26 @@ module.exports.createSession= function(req, res){
         }
     })
     }
+
+    module.exports.signout = function(req, res){
+
+        res.clearCookie('user_id');
+        //working both up & below
+       // res.cookie('user_id', {maxAge: -1});
+        return res.redirect('/user/login');
+
+        // res.cookie('user_id', '', {
+        //     domain: 'https://localhost:9000',
+        //     maxAge: 0,
+        //     overwrite: true,
+        //   });
+        
+        //if(req.cookies.user_id){
+            //req.findByIdAndDelete(req.cookies.user_id, function(err, user){
+                //if(err){
+                    //console.log(`Error in deleting user id`);
+                //}
+               
+            //})
+       // }
+    }
